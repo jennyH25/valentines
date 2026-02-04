@@ -9,8 +9,10 @@ export default function OrientationGuard({
   children: React.ReactNode;
 }) {
   const [isPortrait, setIsPortrait] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const checkOrientation = () => {
       // Detects if we're in portrait mode
       const portrait =
@@ -22,6 +24,10 @@ export default function OrientationGuard({
     window.addEventListener("resize", checkOrientation);
     return () => window.removeEventListener("resize", checkOrientation);
   }, []);
+
+  if (!mounted) {
+    return <>{children}</>;
+  }
 
   if (isPortrait) {
     return (

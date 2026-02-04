@@ -94,8 +94,8 @@ export default function PhotoPairGame({
             key={i}
             src={image}
             alt={`Image ${i + 1}`}
-            layout="fill"
-            objectFit="cover"
+            width={100}
+            height={100}
             priority
           />
         ))}
@@ -138,8 +138,8 @@ export default function PhotoPairGame({
                 <Image
                   src={images[index]}
                   alt={`Imagen ${index + 1}`}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  sizes="(max-width: 768px) 11vh, 80px"
                   className="rounded-sm lg:rounded-md object-cover"
                 />
               </motion.div>
