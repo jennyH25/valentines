@@ -87,20 +87,6 @@ export default function PhotoPairGame({
 
   return (
     <div className="grid grid-cols-9 gap-1 lg:gap-2 max-w-[95vw] mx-auto place-items-center">
-      {/* Image preload */}
-      <div className="hidden">
-        {images.map((image, i) => (
-          <Image
-            key={i}
-            src={image}
-            alt={`Image ${i + 1}`}
-            width={100}
-            height={100}
-            priority
-          />
-        ))}
-      </div>
-
       {heartLayout.flat().map((index, i) =>
         index !== null ? (
           <motion.div
@@ -108,7 +94,7 @@ export default function PhotoPairGame({
             className="w-[11vh] h-[11vh] lg:w-20 lg:h-20 relative cursor-pointer"
             whileHover={{ scale: 1.1 }}
             onClick={() => handleClick(index)}
-            style={{ perspective: "1000px" }} // Add perspective for 3D effect
+            style={{ perspective: "1000px" }}
           >
             {/* Back of the card */}
             {!selected.includes(index) && !matched.includes(index) && (
